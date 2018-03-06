@@ -1,15 +1,33 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
 
 Vue.use(Router)
 
-export default new Router({
+import AdminRouter from './admin';
+import CustRouter from './customer';
+
+
+
+/*
+ [
+	{
+      path: '/admin',
+      name: 'Admin',
+      component: Admin
+   },{
+      path: '/admin',
+      name: 'Admin',
+      component: Admin
+   }
+]
+
+ * */
+let router = new Router({
   routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
+    ...AdminRouter,
+    ...CustRouter
   ]
 })
+
+export default router;
